@@ -1,39 +1,53 @@
 package com.uts.jwp.domain;
 
-import java.time.LocalDate;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 public class Courses {
-    private String codeCourse;
-    private String nameCourse;
-    private int sks;
+
+    @NotBlank(message = "courseCode name is required")
+    private String courseCode;
+
+    @NotBlank(message = "CourseName is required")
+    @Size(min = 5, max = 10)
+    private String courseName;
+
+    @NotNull(message = "TotSKS is required")
+    private int totSKS;
+
+    @NotBlank(message = "Faculty is required")
     private String faculty;
-    
-    public Courses (){
-     
+
+    public Courses() {
+
     }
 
-    public String getCodeCourse() {
-        return codeCourse;
+    public String getCourseCode() {
+        return courseCode;
     }
 
-    public void setCodeCourse(String codeCourse) {
-        this.codeCourse = codeCourse;
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 
-    public String getNameCourse() {
-        return nameCourse;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setNameCourse(String nameCourse) {
-        this.nameCourse = nameCourse;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
-    public int getSks() {
-        return sks;
+    public int getTotSKS() {
+        return totSKS;
     }
 
-    public void setSks(int sks) {
-        this.sks = sks;
+    public void setTotSKS(int totSKS) {
+        this.totSKS = totSKS;
     }
 
     public String getFaculty() {
